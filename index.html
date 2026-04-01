@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VynnHost Pro | Galactic Station</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+
+        :root { --cyan: #00f2fe; --magenta: #ff00ff; --red: #ff003c; --bg: #020205; }
+
+        body { background: var(--bg); color: white; font-family: sans-serif; margin: 0; display: flex; justify-content: center; padding: 30px 15px; overflow-x: hidden; }
+
+        
+
+        /* BACKGROUND BINTANG */
+
+        #stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, #050515 0%, #000 100%); }
+
+        
+
+        .container { width: 100%; max-width: 420px; text-align: center; z-index: 10; }
+
+        
+
+        /* AVATAR RADAR */
+
+        .avatar { width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--cyan); box-shadow: 0 0 20px var(--cyan); background: url('https://files.catbox.moe/stoodt.jpg') center/cover; position: relative; }
+
+        .avatar::after { content: ''; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; border: 1px solid var(--cyan); border-radius: 50%; animation: pulse 2s infinite; }
+
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.4); opacity: 0; } }
+
+        /* MUSIC PLAYER */
+
+        .music-box { background: rgba(255,255,255,0.1); border: 1px solid var(--cyan); border-radius: 50px; padding: 8px 15px; margin-bottom: 25px; cursor: pointer; font-size: 11px; display: inline-block; }
+
+        
+
+        /* CARD MENU */
+
+        .label { font-size: 10px; color: var(--magenta); text-align: left; margin: 20px 0 10px 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: bold; }
+
+        .card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(0,242,254,0.2); padding: 16px; margin-bottom: 12px; border-radius: 15px; display: flex; align-items: center; text-decoration: none; color: white; transition: 0.3s; }
+
+        .card:hover { transform: scale(1.03); border-color: var(--cyan); box-shadow: 0 0 15px rgba(0,242,254,0.4); }
+
+        .card i { font-size: 20px; width: 35px; color: var(--cyan); }
+
+        .card span { flex: 1; text-align: left; font-weight: 500; }
+
+        
+
+        /* PROMO */
+
+        .promo { border: 2px solid var(--red) !important; background: rgba(255,0,60,0.1); }
+
+        .promo i { color: var(--red); }
+
+        .price { background: var(--red); padding: 2px 8px; border-radius: 5px; font-size: 12px; font-weight: bold; }
+
+        .footer { margin-top: 40px; font-size: 10px; color: #444; letter-spacing: 2px; }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="stars"></div>
+
+    <audio id="bgm" loop><source src="https://files.catbox.moe/ul1rh5.mp3" type="audio/mpeg"></audio>
+
+    <div class="container">
+
+        <div class="avatar"></div>
+
+        <h2 style="margin:0; letter-spacing:2px; text-shadow:0 0 10px var(--cyan);">VYNNHOST PRO</h2>
+
+        <p style="font-size:12px; color:var(--cyan); margin-bottom:20px;">AUTHORIZED STATION 0.3.6</p>
+
+        <div class="music-box" onclick="playM()">
+
+            <i class="fa-solid fa-music"></i> <span id="mt">PLAY SOUNDTRACK 😈</span>
+
+        </div>
+
+        <div class="label">FLASH SALE</div>
+
+        <a href="https://wa.me/6285134770776?text=Order+Ptero+2GB" class="card promo">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <span>Panel Pterodactyl 2GB</span>
+
+            <div class="price">Rp 1.500</div>
+
+        </a>
+
+        <div class="label">MAIN SERVICES</div>
+
+        <a href="https://wa.me/6285134770776" class="card"><i class="fa-solid fa-server"></i><span>Sewa VPS Ubuntu</span></a>
+
+        <a href="https://wa.me/6285134770776" class="card"><i class="fa-solid fa-robot"></i><span>WA Bot Automation</span></a>
+
+        <div class="label">COMMAND CENTER</div>
+
+        <a href="https://wa.me/6285134770776" class="card"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp Admin</span></a>
+
+        <a href="https://t.me/VynnHost" class="card"><i class="fa-brands fa-telegram"></i><span>Telegram Channel</span></a>
+
+        <div class="footer">SYSTEM STATUS: ONLINE<br>© 2026 VYNNHOST</div>
+
+    </div>
+
+    <script>
+
+        function playM() {
+
+            var a = document.getElementById("bgm");
+
+            var t = document.getElementById("mt");
+
+            if (a.paused) { a.play(); t.innerHTML = "PLAYING: VYNN VIBE 😈"; }
+
+            else { a.pause(); t.innerHTML = "PAUSED"; }
+
+        }
+
+        // Background Stars
+
+        const s = document.getElementById('stars');
+
+        for(let i=0; i<50; i++) {
+
+            let d = document.createElement('div');
+
+            d.style.position = 'absolute'; d.style.width = '2px'; d.style.height = '2px';
+
+            d.style.background = '#fff'; d.style.top = Math.random()*100+'%';
+
+            d.style.left = Math.random()*100+'%'; d.style.opacity = Math.random();
+
+            s.appendChild(d);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
